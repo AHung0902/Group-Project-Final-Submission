@@ -1,0 +1,73 @@
+<html>
+<head>
+    <script>
+        function populate_curr() {
+            fetch('https://api.frankfurter.app/currencies').then(response => response.json()).then(data => 
+                {
+                    // curr_opt_key_value = JSON.parse(JSON.stringify(data))
+                    // console.log(curr_opt_key_value)
+                    // console.log(data)
+                    // for (const [key, value] of Object.entries(data))
+                    // for (let key in curr_opt_key_value)
+                    // for (key in curr_opt_key_value)
+                    for (const [key, value] of Object.entries(data))
+                    {
+                        const from_choice = document.createElement('option');
+                        from_choice.value = key;
+                        from_choice.textContent = value;
+                        document.getElementById('fromCurrency').appendChild(from_choice);
+
+                        const to_choice = document.createElement('option');
+                        to_choice.value = key;
+                        to_choice.textContent = value;
+                        document.getElementById('toCurrency').appendChild(to_choice);
+                    }
+                })
+    
+        }
+        function convert()
+         {
+            from = document.getElementById('fromCurrency').value;
+            to = document.getElementById('toCurrency').value;
+            amount = parseInt(document.getElementById('amount').value);
+                    //  // console.log(amount)
+                    //     console.log(from)
+                    //     console.log(convertedAmount)
+                    //     console.log(to)
+            if (from === to)
+            {
+                alert("You cannot convert the same values");
+                return;
+            }
+
+            fetch(`https://api.frankfurter.app/latest?base=${from}&symbols=${to}`).then(resp => resp.json()).then(data =>
+             {
+                    convertedAmount = (amount * data.rates[to]).toFixed(2);
+                    document.getElementById('word').innerText = `${amount} ${from} = ${convertedAmount} ${to}`;
+            })
+            document.getElementById('word').innerText = `${amount} ${from} = ${convertedAmount} ${to}`;
+                
+        }
+        window.onload = populate_curr;
+    </script>
+</head>
+<body style="background-color:azure">
+    <h1>Let's Convert some Currency!</h1>
+    <form onsubmit="event.preventDefault(); convert();">
+        <label for="fromCurrency">From Currency:</label>
+        <select id="fromCurrency" required>
+        </select><br>
+
+        <label for="toCurrency">To Currency:</label>
+        <select id="toCurrency" required>
+        </select><br>
+
+        <label for="amount">Number to Convert:</label>
+        <input type="number" id="amount"/><br>
+
+        <button type="submit">submit</button>
+    </form>
+
+    <h2 id="word"></h2>
+</body>
+</html>
