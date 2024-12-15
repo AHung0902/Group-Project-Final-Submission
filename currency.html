@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js Library -->
+    <script src="currency.js" defer></script> <!-- External JavaScript File -->
+</head>
+<body style="background-color:azure">
+    <h1>Let's Convert Some Currency!</h1>
+    <form onsubmit="event.preventDefault(); convert();">
+        <label for="fromCurrency">From Currency:</label>
+        <select id="fromCurrency" required></select>
+        <button type="button" onclick="swapCurrencies()">Swap</button> <!-- Swap Button -->
+        <br>
+
+        <label for="toCurrency">To Currency:</label>
+        <select id="toCurrency" required></select><br>
+
+        <label for="amount">Number to Convert:</label>
+        <input type="number" id="amount" required /><br>
+
+        <label for="days">Show Historical Trends (Days):</label>
+        <input type="number" id="days" placeholder="365 = 1 year" required /><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2 id="word"></h2>
+    <canvas id="currencyChart" width="600" height="300"></canvas> <!-- Chart Container -->
+</body>
+</html>
