@@ -3,7 +3,7 @@
 ## Table of Contents
 1. [Installation](#installation)
 2. [Running the Application](#running-the-application)
-3. [API Endpoints](#apis)
+3. [APIs](#apis)
 4. [Future Development Roadmap](#future-development-roadmap)
 
 ## Installation
