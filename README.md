@@ -6,4 +6,4 @@ Description: ‘Currency Conversion’ is an app centered around helping users f
 
 Target Browser: ‘Currency Conversion’ will be hosted as an iOS app. This increases accessibility for users and is easier to utilize. With it being on phones, ‘Currency Conversion’ can be used anywhere.
 
-Developer Manual: 
+Developer Manual: [DeveloperManual.md]
