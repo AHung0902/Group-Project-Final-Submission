@@ -1,3 +1,6 @@
+
+
+
 let chartInstance; // Holds the chart instance
 
 // Populate dropdowns with available currencies

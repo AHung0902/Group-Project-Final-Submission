@@ -135,3 +135,4 @@ async function selectCountry(country) {
 
 // Fetch country data on page load
 fetchCountries();
+
